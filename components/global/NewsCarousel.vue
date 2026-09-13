@@ -60,14 +60,6 @@
 
             <div class="card-content">
               <div class="card-meta">
-                <div v-if="categoryChips(article).length" class="card-cats-row">
-                  <NuxtLink
-                    v-for="chip in categoryChips(article)"
-                    :key="chip.label"
-                    :to="{ path: '/news', query: { category: chip.token } }"
-                    class="card-cat-tag"
-                  >{{ chip.label }}</NuxtLink>
-                </div>
                 <span
                   v-if="article.source?.name"
                   class="publisher-badge"
@@ -80,6 +72,14 @@
                     <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
                   </svg>
                 </span>
+                <div v-if="categoryChips(article).length" class="card-cats-row">
+                  <NuxtLink
+                    v-for="chip in categoryChips(article)"
+                    :key="chip.label"
+                    :to="{ path: '/news', query: { category: chip.token } }"
+                    class="card-cat-tag"
+                  >{{ chip.label }}</NuxtLink>
+                </div>
                 <span class="card-date">{{ formatDate(article.published_at) }}</span>
               </div>
 
