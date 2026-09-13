@@ -186,6 +186,7 @@ const { data: pageData, error: pageError } = useAsyncData('homepage', async () =
     // venice 2026
     'The Echo Chamber',
     'Wild Horse Nine',
+    'DAU',
     // frightfest 2026
     'Ithaqua',
     'Salmokji: Whispering Water',
