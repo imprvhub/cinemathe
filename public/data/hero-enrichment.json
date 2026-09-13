@@ -8,14 +8,6 @@
     "force_enrichment": true
   },
   {
-    "tmdb_id": 1058424,
-    "media_type": "movie",
-    "trailer_key": "Vt7860xZFXk",
-    "backdrop_path": "/qv2gffpbllYE1Pxz5nhYQmYuht5.jpg",
-    "poster_path": "/1n37BJchWHLiSYQkuFxe5KjB951.jpg",
-    "force_enrichment": true
-  },
-  {
     "tmdb_id": 891621,
     "media_type": "movie",
     "trailer_key": "Haw_sznA5aQ",
@@ -120,14 +112,6 @@
     "force_enrichment": true
   },
   {
-    "tmdb_id": 1461254,
-    "media_type": "movie",
-    "trailer_key": "VxfRnXdjLi4",
-    "backdrop_path": "https://res.cloudinary.com/dbcpmaeww/image/upload/v1784358635/cinemagoria/backdrops/hero_1461254.webp",
-    "poster_path": "/bOl0rJ86WWxVYlQlGttHhHuYiPQ.jpg",
-    "force_enrichment": false
-  },
-  {
     "tmdb_id": 1065610,
     "media_type": "movie",
     "trailer_key": "0mDcECq-bWw",
@@ -197,6 +181,14 @@
     "trailer_key": "h969bLwxgKc",
     "backdrop_path": "https://res.cloudinary.com/dbcpmaeww/image/upload/v1788904433/cinemagoria/backdrops/hero_1425859.webp",
     "poster_path": "/ayaZ9kKsmdk1EaH99qxpp6SEpIU.jpg",
+    "force_enrichment": true
+  },
+  {
+    "tmdb_id": 1457866,
+    "media_type": "movie",
+    "trailer_key": "hbU1zLAwj3w",
+    "backdrop_path": "https://res.cloudinary.com/dbcpmaeww/image/upload/v1789291761/cinemagoria/backdrops/hero_themisadventuresofcliffboth-backdrop.webp",
+    "poster_path": "/skSMOTFYcWyHZqFNPfz0f3Jsyc5.jpg",
     "force_enrichment": true
   }
 ]
