@@ -120,6 +120,7 @@
 </template>
 
 <script>
+import { NuxtLink } from '#components';
 import Loader from '@/components/Loader';
 import carousel from '~/mixins/Carousel';
 import striptags from 'striptags';
@@ -132,7 +133,8 @@ export default {
   name: 'NewsCarousel',
   mixins: [carousel],
   components: {
-    Loader
+    Loader,
+    NuxtLink
   },
   data() {
     return {
