@@ -436,6 +436,13 @@ const CATEGORY_ORDER = [
     "Brigadoon",
     "Sitges Collection",
     "Seven Chances",
+    "Sitges Clàssics",
+    "Sitges Documenta",
+    "Serial Sitges",
+    "Anima't",
+    "Sitges Family",
+    "Catalunya Imaginària",
+    "Foco Iberoamericano",
 ];
 
 const CATEGORY_LABELS = {
@@ -625,6 +632,17 @@ onBeforeUnmount(() => {
     if (mobileMql) mobileMql.removeEventListener('change', updateIsMobile);
 });
 
+// Serial Sitges es el strand de series del festival: las filas viven con forma de
+// película en festival_films, así que se fuerza media_type aquí, en esta página
+// y en ninguna otra, para que las cards enlacen a /tv/ en vez de /movie/.
+function withSerialSitgesAsTv(filmsData) {
+    const results = (filmsData?.results || []).map((f) => {
+        const key = String(f.category || f.section || '').trim();
+        return key === 'Serial Sitges' ? { ...f, media_type: 'tv' } : f;
+    });
+    return { ...filmsData, results };
+}
+
 onMounted(async () => {
     try {
         const [filmsData, scheduleData, awardsData] = await Promise.all([
@@ -633,7 +651,7 @@ onMounted(async () => {
             $fetch('/api/festival/sitges/awards').catch(() => ({ results: [] })),
         ]);
 
-        films.value = filmsData;
+        films.value = withSerialSitgesAsTv(filmsData);
         awards.value = awardsData.results || [];
         schedule.value = scheduleData.results || [];
 
