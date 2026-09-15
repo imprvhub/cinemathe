@@ -60,19 +60,26 @@ Every covered festival gets its own page, API endpoints, card and badge componen
 
 **Live now**
 
-**Sundance** · **Rotterdam** · **Berlinale** · **Romford Horror** · **Slamdance** · **SXSW** · **BIFFF** · **BAFICI** · **CUFF** *(Calgary Underground)* · **Cannes** · **Tribeca** · **BIFAN** *(Bucheon)* · **KVIFF** *(Karlovy Vary)* · **Fantasia** *(Montréal)* · **Locarno** · **FrightFest** *(London)* · **Venice** *(La Biennale)* · **TIFF** *(Toronto)*
+**Sundance** · **Rotterdam** · **Berlinale** · **Romford Horror** · **Slamdance** · **SXSW** · **BIFFF** · **BAFICI** · **CUFF** *(Calgary Underground)* · **Cannes** · **Tribeca** · **BIFAN** *(Bucheon)* · **KVIFF** *(Karlovy Vary)* · **Fantasia** *(Montréal)* · **Locarno** · **FrightFest** *(London)* · **Venice** *(La Biennale)* · **TIFF** *(Toronto)* · **BIFF** *(Busan)* · **BFI London** · **Sitges**
 
 **Still to land in the 2026 cycle**
 
-**BIFF** *(Busan)* · **BFI London** · **Sitges** · **Cairo** · **Mar del Plata** · **BARS** *(Buenos Aires Rojo Sangre)* · **Marrakech** · **Red Sea**
+**Cairo** · **Mar del Plata** · **BARS** *(Buenos Aires Rojo Sangre)* · **Marrakech** · **Red Sea**
 
-Cairo, Marrakech and Red Sea take coverage into Africa and the Middle East, and BIFF follows BIFAN into South Korea. The 2027 cycle adds **Göteborg**.
+Cairo, Marrakech and Red Sea take coverage into Africa and the Middle East. The 2027 cycle adds **Göteborg**.
 
 Cannes ships the official screenings plus the parallel sections — Critics' Week, Quinzaine des Cinéastes and ACID — and Venice carries its own parallel sections. FrightFest ships the full official screening schedule, and Berlinale adds an interactive timezone-aware view of it. The hero section supports multiple simultaneous festival premiere badges with display precedence.
 
 **Coverage runs from 2026 onwards** and continues across each subsequent edition. Each integration is planned against the festival's lineup announcement rather than a fixed countdown to opening night, since nothing can be ingested before the programme is public — the delivery plan is tracked on the [Festivals Coverage Roadmap](https://github.com/orgs/cinemagoria/projects/1). A festival is dropped when its selection largely duplicates coverage already shipped.
 
 > **Catalog coverage caveat:** festival pages are built from public metadata and third-party sources, which don't always cover every title — particularly short films, experimental works and regional productions. This is a technical limitation, not an editorial decision. No film is intentionally omitted or censored; gaps narrow as upstream metadata catches up.
+
+### Release Calendar
+<div align="center">
+  <img src="https://ivanluna.dev/images/assets/cinemagoria-asset12.webp" alt="Release Calendar" width="70%">
+</div>
+
+A public calendar at `/calendar` with every release the platform tracks for a given month or week — films and episodes together, drawn from the curated catalog (festival programmes, N.O.I.R.). A release date belongs to a country and a format, so every entry names its territory and release type instead of presenting one date as universal. A title's festival itinerary stays expanded, while a wide same-week international rollout collapses into a single entry. Lens, territory, media type and free-text filters run client-side over one cacheable payload per month.
 
 ### Search & Discovery
 <div align="center">
@@ -93,7 +100,7 @@ A unified Discover component embedded directly in Movie and TV pages: granular c
   <img src="https://ivanluna.dev/images/assets/cinemagoria-asset6.webp" alt="Awards" width="70%">
 </div>
 
-Full historical coverage of the Academy Awards, Golden Globes, Palme d'Or, Golden Lion and Golden Bear, fetched concurrently. Includes a dedicated Awards Index page, per-title and per-person awards tabs, and intelligent link resolution that routes to the correct movie or TV page even when TMDb IDs collide.
+Full historical coverage of the Academy Awards, Golden Globes, Palme d'Or, Golden Lion and Golden Bear, with festival winners archived as each covered edition closes. Includes a dedicated Awards page, per-title and per-person awards tabs, and intelligent link resolution that routes to the correct movie or TV page even when TMDb IDs collide.
 
 ### Movie & TV Detail
 <div align="center">
@@ -121,12 +128,9 @@ Follow people (actors, directors, writers), TV shows, production companies and s
   <img src="https://ivanluna.dev/images/assets/cinemagoria-asset5.webp" alt="News" width="70%">
 </div>
 
-Cinemagoria now runs its own AI-assisted editorial engine for cinema news — articles are curated, ranked and surfaced through an in-house pipeline rather than served raw from third-party feeds. Article pages feature YouTube trailer embeds, multi-asset image carousels, and related TMDB movies, TV shows and people for discoverability. The frontend reads pre-computed results from Turso (sub-50ms load times), with article search, saved articles, an RSS feed for Cinemagoria-sourced content and a homepage news carousel.
+Cinemagoria runs its own editorial pipeline for cinema news, alongside a curated set of trusted outlets — every card is labeled with its source, first-party articles open in-app and third-party ones link out to the publisher. Article pages feature YouTube trailer embeds, multi-asset image carousels, and related TMDB movies, TV shows and people for discoverability. The frontend reads pre-computed results from Turso (sub-50ms load times), with article search scoped to Cinemagoria articles, saved articles, an RSS feed for Cinemagoria-sourced content and a homepage news carousel.
 
 ### Authentication
-<div align="center">
-  <img src="https://ivanluna.dev/images/assets/cinemagoria-asset7.webp" alt="Authentication" width="70%">
-</div>
 
 Modal-based auth (no `/login` or `/register` pages) with Google OAuth backed by Django REST Framework, queued pending actions that resume after sign-in, event-driven session updates, and DOMPurify-protected user content. Account deletion is fully self-service.
 
@@ -135,9 +139,10 @@ Modal-based auth (no `/login` or `/register` pages) with Google OAuth backed by 
 ## Additional Capabilities
 
 - **Public user profiles** with activity feeds, follower/following management and configurable privacy.
-- **Granular media progress tracking** down to individual TV episodes, surfaced via circular progress indicators in the global ProgressTrackingModal.
+- **Granular media progress tracking** in real minutes for films and down to individual episodes for TV, editable from the hero and surfaced as progress bars on cards.
 - **Production company & streaming platform pages** with dedicated content listings, sorting, follow buttons and "Explore All" entry points.
 - **Server-side hero selection** with quality gating (IMDb origin, score > 7.0, > 5,000 votes, animation/fantasy excluded) and a promise-based Map cache for enrichment.
+- **Open access** to festival hubs, the release calendar, the N.O.I.R. archive, and more— no sign-in required.
 - **Internationalization** in English and Español via subdomain switching, with AI-delegated translation for hero overviews.
 
 ---
@@ -147,6 +152,8 @@ Modal-based auth (no `/login` or `/register` pages) with Google OAuth backed by 
 - **Concurrent fetching everywhere** — `Promise.all` for homepage data, awards and hero APIs; `Promise.allSettled` for provider and review fetching.
 - **Edge caching on Movie, TV and root routes** — route rules emit `Cache-Control` only and the CDN stores the response; Nitro's server-side cache is deliberately never enabled, since its default in-memory driver leaks heap on wildcard routes. CSR is preserved for interactive routes like `/search`.
 - **News and awards decoupled from request time** — pre-curated by background workers, read instantly at request time.
+- **Release calendar as one normalized payload per month** — title metadata serialized once and referenced by events, backed by an indexed range query on an event-grain release dataset synced by a scheduled job.
+- **Query profiling at the database client boundary** — every server-side query is timed and aggregated by shape.
 - **Dynamic, split sitemap generation** via server routes for SEO.
 - **`fetchWithRefill` carousel batching** with seen-ID deduplication and diversity capping.
 - **Hero enrichment override system** (`force_enrichment`, `_forcePoster`, `_forceBackdrop`, `_forceTrailer` mixins) for precise control over featured assets.
@@ -171,7 +178,7 @@ Environment variables are accessed exclusively through `useRuntimeConfig()` — 
 ## Project Layout
 
 ```
-/pages          Routes (movie, tv, festival, watchlist, lists, news, notifications, ...)
+/pages          Routes (movie, tv, festival, calendar, awards, watchlist, lists, news, notifications, ...)
 /components     Hero, Discover, QuickFav, AwardsTab, CategorySection, ExternalLinks, ...
 /components/global   UserNav, RatedModal, FollowingModal, AuthModal
 /server/api     hero, awards, news, festival/[slug], imdb-rating
