@@ -212,8 +212,6 @@ const { data: pageData, error: pageError } = useAsyncData('homepage', async () =
     'The Mage',
     // kviff 2026
     'Rose of Nevada',
-    'Fruit Gathering',
-    'Hijamat',
     // tribeca 2026
     'The Last Day',
     'Breeder',
@@ -231,7 +229,6 @@ const { data: pageData, error: pageError } = useAsyncData('homepage', async () =
     'Titanic Ocean',
     // cuff 2026
     'Lucid',
-    'The Weed Eaters',
     'Mag Mag',
     // bafici 2026
     'Nova \'78',
@@ -252,9 +249,6 @@ const { data: pageData, error: pageError } = useAsyncData('homepage', async () =
     'Yellow Letters',
     'Rose',
     'Heysel 85',
-    'Nightborn',
-    'If I Were Alive',
-    'Salvation',
     // rotterdam 2026
     'Krakatoa',
     'Butterfly',
