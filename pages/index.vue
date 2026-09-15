@@ -183,8 +183,11 @@ const { data: pageData, error: pageError } = useAsyncData('homepage', async () =
     // tiff 2026
     'Bad Lieutenant: Tokyo',
     'Inherit',
+    'Elsinore',
+    'The Julia Set',
     // venice 2026
     'The Echo Chamber',
+    'Bunker',
     'Wild Horse Nine',
     'DAU',
     // frightfest 2026
